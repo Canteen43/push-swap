@@ -96,5 +96,6 @@ void	iex(t_var *var, int ia);
 void	pushback(t_var *var);
 int		cheapest(t_var *var);
 void	quicksort(t_var *var);
+size_t	ft_strlen(const char *s);
 
 #endif	// HEADER_H

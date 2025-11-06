@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chars_in_str.c                                  :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 11:49:16 by kweihman          #+#    #+#             */
-/*   Updated: 2024/08/23 14:43:42 by kweihman         ###   ########.fr       */
+/*   Created: 2024/04/30 15:40:51 by kweihman          #+#    #+#             */
+/*   Updated: 2024/05/01 14:37:06 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int	chars_in_str(char *cs, char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	while (*cs)
-	{
-		if (char_in_str(*cs, s) == 1)
-			return (1);
-		cs++;
-	}
-	return (0);
+	while (*s)
+		write(fd, s++, 1);
 }

@@ -16,10 +16,6 @@ BONUS_TARGET =	checker
 # Directories
 SRC_DIR =	src/
 OBJ_DIR =	obj/
-LIB_DIR =	Libft/
-
-# Library
-LIB =	$(LIB_DIR)libft.a
 
 # Source files
 SRC_FILES += main.c
@@ -62,12 +58,19 @@ SRC_FILES += ft_exmov.c
 SRC_FILES += ft_quicksort.c
 SRC_FILES += ft_rot_a.c
 SRC_FILES += ft_rot_b.c
+SRC_FILES += ft_split.c
+SRC_FILES += ft_putstr_fd.c
+SRC_FILES += ft_bzero.c
+SRC_FILES += ft_strjoin.c
+SRC_FILES += ft_strlen.c
+
 
 # Object files
 OBJ_FILES 		=	$(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 
 # Bonus files
-BON_SRC_FILES	=	$(filter-out main.c, $(SRC_FILES)) main_bonus.c
+BON_SRC_FILES	=	$(filter-out main.c, $(SRC_FILES))
+BON_SRC_FILES	+=	main_bonus.c
 BON_SRC_FILES	+=	ft_get_ops.c
 BON_OBJ_FILES 	=	$(BON_SRC_FILES:%.c=$(OBJ_DIR)%.o)
 
@@ -75,28 +78,23 @@ BON_OBJ_FILES 	=	$(BON_SRC_FILES:%.c=$(OBJ_DIR)%.o)
 # Rules
 all: $(TARGET)
 
-$(LIB):
-	$(MAKE) -C $(LIB_DIR) all
-
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(TARGET): $(OBJ_FILES) $(LIB)
-	$(CC) $(OBJ_FILES) -o $(TARGET) $(LIB)
+$(TARGET): $(OBJ_FILES)
+	$(CC) $(OBJ_FILES) -o $(TARGET)
 
-$(BONUS_TARGET): $(BON_OBJ_FILES) $(LIB)
-	$(CC) $(BON_OBJ_FILES) -o $(BONUS_TARGET) $(LIB)
+$(BONUS_TARGET): $(BON_OBJ_FILES)
+	$(CC) $(BON_OBJ_FILES) -o $(BONUS_TARGET) 
 
 clean:
 	rm -rf $(OBJ_DIR)
-	$(MAKE) -C $(LIB_DIR) clean
 
 fclean: clean
 	rm -f $(TARGET) $(BONUS_TARGET)
-	$(MAKE) -C $(LIB_DIR) fclean
 
 re: fclean all
 

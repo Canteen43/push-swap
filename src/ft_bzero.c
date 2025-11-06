@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_sorted.c                                    :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kweihman <kweihman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 12:05:27 by kweihman          #+#    #+#             */
-/*   Updated: 2024/08/24 11:30:00 by kweihman         ###   ########.fr       */
+/*   Created: 2024/05/03 12:38:07 by kweihman          #+#    #+#             */
+/*   Updated: 2024/05/09 20:09:41 by kweihman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-bool	lst_sorted(t_list *node)
+void	ft_bzero(void *s, size_t n)
 {
-	while (node != NULL && node->next != NULL)
-	{
-		if (node->value > node->next->value)
-			return (false);
-		node = node->next;
-	}
-	return (true);
+	while (n-- > 0)
+		*(unsigned char *)s++ = 0;
 }
