@@ -13,6 +13,7 @@ See en.subject.pdf for a more detailed description.
 - `./pushswap 2 1 3`
 - `ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG`
 - `ARG=$(shuf -i 0-9999 -n 1000 | tr '\n' ' '); ./push_swap $ARG | ./checker $ARG`
-
+## Visualizer
+To get a cool visualization of the sorting, check out [this repo](https://github.com/o-reo/push_swap_visualizer).
 ## Acknowledgements
 The exercise is part of the 42 core curriculum. en.subject.pdf is intellectual property of the [42 school](https://www.42network.org/).
