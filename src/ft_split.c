@@ -93,13 +93,13 @@ char	**ft_split(char const *s, char c)
 	sub_cnt = 0;
 	while (index_substr(s, sub_cnt, c))
 		sub_cnt++;
-	ptr = malloc(sub_cnt + 1 * sizeof(void *));
+	ptr = malloc((sub_cnt + 1) * sizeof(void *));
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
 	while (i < sub_cnt)
 	{
-		ptr[i] = malloc(substr_len(s, c, i) + 1 * sizeof(char));
+		ptr[i] = malloc((substr_len(s, c, i) + 1) * sizeof(char));
 		if (ptr[i] == NULL)
 		{
 			free_all(ptr, i);
